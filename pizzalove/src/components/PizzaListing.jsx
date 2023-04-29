@@ -2,11 +2,37 @@ import React, { useState, useEffect } from 'react';
 import Cart from './Cart';
 import { Link } from 'react-router-dom';
 import PizzaCard from './PizzaCard';
+import Footer from './Footer';
 
 function PizzaListing() {
   const [pizzas, setPizzas] = useState([]);
   const [showCart, setShowCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+  const [showVeg, setShowVeg] = useState(false);
+  const [sortBy, setSortBy] = useState('rating'); // initial sort by rating
+
+  const handleSort = (event) => {
+    setSortBy(event.target.value);
+  };
+  const handleShowVegChange = () => {
+    setShowVeg(!showVeg);
+  };
+  const sortedPizza = [...pizzas].sort((a, b) => {
+    if (sortBy === 'rating') {
+      return b.rating - a.rating; // sort by descending order of rating
+    } else if (sortBy === 'price') {
+      return a.price - b.price; // sort by ascending order of price
+    } else {
+      return 0; // no sorting
+    }
+  });
+
+  const filteredPizzas = showVeg
+    ? sortedPizza.filter((pizza) => pizza.isVeg)
+    : showVeg === false
+    ? sortedPizza.filter((pizza) => (!pizza.isVeg || pizza.isVeg))
+    : sortedPizza;
+
   const handleClickShowCart = () => {
     setShowCart(!showCart);
   }
@@ -62,14 +88,33 @@ function PizzaListing() {
       </ul>
     </nav>
     <ul>
-    <li><button onClick={handleClickShowCart}>
+    <li><button className='cart-button' onClick={handleClickShowCart}>
             Cart
           </button>
           {showCart && <Cart cartItems={cartItems}/>}</li>
     </ul>
+
     {!showCart && <div className='Board'>
-      
-      {pizzas.map((pizza) => (
+      <div className='header'>
+        <div>
+    <h1 className='Heading'>Pizza List</h1>
+      <label className='sort' htmlFor="sort-by">Sort by:</label>
+      <select className='sort-by' id="sort-by" onChange={handleSort} value={sortBy}>
+        <option value="rating">Rating</option>
+        <option value="price">Price</option>
+      </select>
+      </div>
+      <div className='veg-check'>
+        <input
+          type="checkbox"
+          id="show-veg"
+          checked={showVeg}
+          onChange={handleShowVegChange}
+        />
+        <label htmlFor="show-veg">Show only vegetarian</label>
+      </div>
+      </div>
+      {filteredPizzas.map((pizza) => (
         <div key={pizza.id}>
           <PizzaCard {...pizza} addToCart = {addToCart}/>
         </div>
@@ -77,7 +122,7 @@ function PizzaListing() {
       <div>
       </div>
     </div>}
-    
+    <Footer/>
     </>
   );
 }

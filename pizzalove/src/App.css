@@ -1,4 +1,87 @@
-/* Navbar */
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+}
+.veg-check {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.veg-check input[type="checkbox"] {
+  position: relative;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  appearance: none;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  background-color: #fff;
+}
+
+.veg-check input[type="checkbox"]:checked::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 7px;
+  width: 6px;
+  height: 12px;
+  border: solid #3AB7AC;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.veg-check label {
+  cursor: pointer;
+  color: #f8f3f3;
+  transition: color 0.2s ease-in-out;
+}
+
+.veg-check label:hover {
+  color: #3AB7AC;
+}
+
+.Heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.sort {
+  margin-right: 1rem;
+}
+
+.sort-by {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  color: #333;
+}
+
+.sort-by:hover,
+.sort-by:focus {
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.sort-by option {
+  font-size: 1rem;
+  color: #333;
+}
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -28,6 +111,7 @@
 }
 
 /* Cart */
+
 .navbar button {
   background-color: #fff;
   color: #333;
@@ -68,6 +152,8 @@
 
 .Board {
   background-color: #fff;
+  justify-content: space-between;
+  align-items: center;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
@@ -116,179 +202,107 @@
   font-size: 18px;
   text-align: right;
 }
-/* PizzaCard container */
 .pizza-card {
   display: flex;
-  background-color: #f2f2f2;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Pizza image */
-.pizza-card img {
-  width: 25%;
-  margin-bottom: 10px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
 }
 
-/* Pizza name */
-.pizza-card h1 {
-  font-size: 10px;
-  margin-bottom: 10px;
-}
-
-/* Pizza description */
-.pizza-card p {
-  font-size: 8px;
-  margin-bottom: 5px;
-}
-
-/* Pizza rating */
-.pizza-card p:last-of-type {
-  margin-bottom: 8px;
-}
-
-/* Pizza price */
-.pizza-card p:nth-last-of-type(2) {
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-/* Pizza type */
-.pizza-card p:last-child {
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-
-/* Customize button */
-.pizza-card button {
-  background-color: #ff6b6b;
-  border: none;
-  color: #fff;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
 .details {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
-  margin: 20px;
 }
 
-/* .details img {
-  max-width: 15%;
+.details img {
+  width: 70%;
+  max-width: 200px;
   height: auto;
-  margin-bottom: 10px;
+  object-fit: cover;
+  margin: 20px;
+  border-radius: 5px;
 }
 
 .details h1 {
-  font-size: 0.6rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-align: center;
+  font-size: 24px;
+  margin: 10px;
+  text-align: left;
 }
 
 .details p {
-  font-size: 0.3rem;
-  margin-bottom: 5px;
-  text-align: center;
+  font-size: 16px;
+  margin: 10px;
+  text-align: left;
 }
 
-.details p:last-child {
-  margin-bottom: 20px;
-} */
-
-@media only screen and (min-width: 768px) {
-  .details {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-
-  .details img {
-    max-width: 50%;
-    margin-bottom: 0;
-    margin-right: 20px;
-  }
-
-  .details h1 {
-    font-size: 3rem;
-    text-align: left;
-  }
-
-  .details p {
-    font-size: 1.4rem;
-    text-align: left;
-  }
-}
-
-
-/* Popup container */
 .popup {
   position: fixed;
+  z-index: 9999;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999;
 }
 
-/* Popup content */
 .popup-content {
   background-color: #fff;
+  border-radius: 5px;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 100%;
 }
 
-/* Form group */
-.popup-content .form-group {
+.popup-content h2 {
+  font-size: 24px;
   margin-bottom: 20px;
 }
 
-/* Form label */
-.popup-content label {
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
   display: block;
   font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-/* Form select */
-.popup-content select {
-  font-size: 16px;
-  padding: 5px;
   margin-bottom: 10px;
-  border-radius: 5px;
 }
 
-/* Form checkbox */
-.popup-content input[type="checkbox"] {
-  margin-right: 5px;
+.form-group select,
+.form-group input[type='radio'],
+.form-group input[type='checkbox'] {
+  margin-right: 10px;
 }
 
-/* Form submit button */
-.popup-content button[type="submit"] {
-  background-color: #ff6b6b;
-  border: none;
+button {
+  background-color: #f04e23;
   color: #fff;
-  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
   font-weight: bold;
   padding: 10px 20px;
-  border-radius: 5px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 5px;
 }
+
+button:hover {
+  background-color: #fff;
+  color: #f04e23;
+  border: 2px solid #f04e23;
+}
+
 .about-container {
   display: flex;
   flex-direction: column;
@@ -309,5 +323,83 @@
   padding: 20px;
   font-size: 24px;
   text-align: center;
+}
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 50px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.col-lg-6 {
+  flex-basis: 50%;
+}
+
+.col-lg-3 {
+  flex-basis: 25%;
+}
+
+h4 {
+  margin-bottom: 30px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 30px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #f2a900;
+}
+
+.bottom-bar {
+  background-color: #222;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .pizza-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pizza-card img {
+    max-width: 100px;
+
+  }
+
+  .details {
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+  }
+  .details p {
+    font-size: 16px;
+    margin: 10px;
+    text-align: justify;
+  }
 }
 
