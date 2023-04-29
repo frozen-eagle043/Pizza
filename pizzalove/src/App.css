@@ -1,5 +1,313 @@
-img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
 }
+
+.navbar .nav-links {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navbar .nav-links li {
+  margin: 0 1rem;
+}
+
+.navbar .nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Cart */
+.navbar button {
+  background-color: #fff;
+  color: #333;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.navbar button:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 1rem;
+  }
+
+  .navbar .nav-links li {
+    margin: 0.5rem 0;
+  }
+
+  .navbar button {
+    margin-top: 1rem;
+  }
+}
+
+.Board {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+}
+.cart-board {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+}
+
+.cart-board h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.cart-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.cart-card h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.cart-card p {
+  margin: 5px 0;
+}
+
+.cart-card p:first-child {
+  font-weight: bold;
+}
+
+.cart-card p:last-child {
+  margin-top: 10px;
+}
+
+.cart-board p:last-child {
+  font-weight: bold;
+  font-size: 18px;
+  text-align: right;
+}
+/* PizzaCard container */
+.pizza-card {
+  display: flex;
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Pizza image */
+.pizza-card img {
+  width: 25%;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+/* Pizza name */
+.pizza-card h1 {
+  font-size: 10px;
+  margin-bottom: 10px;
+}
+
+/* Pizza description */
+.pizza-card p {
+  font-size: 8px;
+  margin-bottom: 5px;
+}
+
+/* Pizza rating */
+.pizza-card p:last-of-type {
+  margin-bottom: 8px;
+}
+
+/* Pizza price */
+.pizza-card p:nth-last-of-type(2) {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Pizza type */
+.pizza-card p:last-child {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+
+/* Customize button */
+.pizza-card button {
+  background-color: #ff6b6b;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+/* .details img {
+  max-width: 15%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.details h1 {
+  font-size: 0.6rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.details p {
+  font-size: 0.3rem;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.details p:last-child {
+  margin-bottom: 20px;
+} */
+
+@media only screen and (min-width: 768px) {
+  .details {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .details img {
+    max-width: 50%;
+    margin-bottom: 0;
+    margin-right: 20px;
+  }
+
+  .details h1 {
+    font-size: 3rem;
+    text-align: left;
+  }
+
+  .details p {
+    font-size: 1.4rem;
+    text-align: left;
+  }
+}
+
+
+/* Popup container */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Popup content */
+.popup-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Form group */
+.popup-content .form-group {
+  margin-bottom: 20px;
+}
+
+/* Form label */
+.popup-content label {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Form select */
+.popup-content select {
+  font-size: 16px;
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+/* Form checkbox */
+.popup-content input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+/* Form submit button */
+.popup-content button[type="submit"] {
+  background-color: #ff6b6b;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+

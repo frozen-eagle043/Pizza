@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Cart from './Cart';
+import { Link } from 'react-router-dom';
 import PizzaCard from './PizzaCard';
 
 function PizzaListing() {
@@ -11,13 +12,14 @@ function PizzaListing() {
   }
   const addToCart = (id,name, size, toppings,price, quantity) => {
     const existingCartItem = cartItems.find(
-      (item) => item.id === id && item.size === size && item.toppings === toppings
+      (item) => item.name === name && item.size === size && item.toppings === toppings
     );
-
+    
     if (existingCartItem) {
       const updatedCartItems = cartItems.map((item) => {
-        if (item.id === id && item.size === size && item.toppings === toppings) {
-          return { ...item, quantity: item.quantity + quantity };
+        if (item.name === name && item.size === size && item.toppings === toppings) {
+          console.log('hi')
+          return { ...item, quantity: item.quantity + 1 };
         } else {
           return item;
         }
@@ -51,19 +53,32 @@ function PizzaListing() {
   }, []);
 
   return (
-    <div>
+    <>
+    <nav className="navbar">
+      <ul className="nav-links">
+        <li><Link to="/about">About</Link></li>
+        <li><Link to="/contact">Contact</Link></li>
+        
+      </ul>
+    </nav>
+    <ul>
+    <li><button onClick={handleClickShowCart}>
+            Cart
+          </button>
+          {showCart && <Cart cartItems={cartItems}/>}</li>
+    </ul>
+    {!showCart && <div className='Board'>
+      
       {pizzas.map((pizza) => (
         <div key={pizza.id}>
           <PizzaCard {...pizza} addToCart = {addToCart}/>
         </div>
       ))}
       <div>
-      <button onClick={handleClickShowCart}>
-            ShowCart
-          </button>
-          {showCart && <Cart cartItems={cartItems}/>}
       </div>
-    </div>
+    </div>}
+    
+    </>
   );
 }
 
